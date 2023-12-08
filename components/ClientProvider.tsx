@@ -2,7 +2,7 @@
 
 import { Toaster } from "react-hot-toast";
 
-function ClinetProvider() {
+function ClientProvider() {
   return (
     <>
       <Toaster position="top-right" />
@@ -10,4 +10,4 @@ function ClinetProvider() {
   );
 }
 
-export default ClinetProvider;
+export default ClientProvider;
