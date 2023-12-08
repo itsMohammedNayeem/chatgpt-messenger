@@ -2,9 +2,9 @@
 
 import { query, collection, orderBy } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
-import { db } from "../firebase";
 import Message from "./Message";
 import { ArrowDownCircleIcon } from "@heroicons/react/24/solid";
+import { db } from "@/firebase";
 
 type Props = {
   chatId: string;

@@ -4,7 +4,7 @@ import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 import { addDoc, serverTimestamp, collection } from "firebase/firestore";
 import { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
-import { db } from "../firebase";
+import { db } from "@/firebase";
 import useSWR from "swr";
 import ModelSelection from "./ModelSelection";
 

@@ -2,17 +2,17 @@
 
 import { useCollection } from "react-firebase-hooks/firestore";
 import { collection, orderBy, query } from "firebase/firestore";
-import NewChat from "./NewChat";
-import { db } from "../firebase";
-import ChatRow from "./ChatRow";
-import ModelSelection from "./ModelSelection";
+import { db } from "@/firebase";
 import Link from "next/link";
 import { HomeIcon } from "@heroicons/react/24/outline";
+import ModelSelection from "./ModelSelection";
+import NewChat from "./NewChat";
+import ChatRow from "./ChatRow";
+import { useSession, signOut } from "next-auth/react";
 
 function SideBar() {
+  const { data: session } = useSession();
   const [chats, loading, error] = useCollection(query(collection(db, "chats")));
-
-  console.log(chats);
 
   return (
     <div className="p-2 flex flex-col h-screen">
@@ -38,7 +38,7 @@ function SideBar() {
 
           <NewChat />
 
-          <div className="felx flex-col space-y-2 my-2">
+          <div className="flex flex-col space-y-2 my-2">
             {loading && (
               <p className="animate-pulse text-gray-400 text-center">
                 Loading Chats...
@@ -52,6 +52,15 @@ function SideBar() {
         </div>
         {/*a way to go back to the home page that is fixed to the buttom of the page*/}
       </div>
+
+      {session && (
+        <img
+          src={session.user?.image!}
+          alt="profile picture"
+          className="h-12 w-12 cursor-pointer mx-auto mb-2 hover:opacity-50 rounded-full"
+          onClick={() => signOut()}
+        />
+      )}
     </div>
   );
 }
