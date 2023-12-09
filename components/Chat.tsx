@@ -29,22 +29,22 @@ function Chat({ chatId }: Props) {
       )
   );
 
-  return (
-    <div className="flex-1 overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-black">
-      {!messages?.empty && (
-        <div>
-          <p className="text-center mt-10 text-white">
-            Type a prompt in below to get started!
-          </p>
-          <ArrowDownCircleIcon className="h-10 w-10 mt-5 text-white mx-auto animate-bounce" />
-        </div>
-      )}
+          return (
+            <div className="flex-1 overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-track-gray-400 scrollbar-thumb-black">
+              {!messages?.docs.length && (
+                <div>
+                  <p className="text-center mt-10 text-white">
+                    Type a prompt in below to get started!
+                  </p>
+                  <ArrowDownCircleIcon className="h-10 w-10 mt-5 text-white mx-auto animate-bounce" />
+                </div>
+              )}
 
-      {messages?.docs.map((message) => (
-        <Message key={message.id} message={message.data()} />
-      ))}
-    </div>
-  );
+              {messages?.docs.map((message) => (
+                <Message key={message.id} message={message.data()} />
+              ))}
+            </div>
+          );
 }
 
 export default Chat;
