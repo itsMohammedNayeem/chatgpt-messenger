@@ -17,13 +17,14 @@ export default function Page() {
           </div>
           <div className="space-y-2">
             <p className="infoText">
-              "Explain quantum computing in simple terms"
+              &quot;Explain quantum computing in simple terms.&quot;
             </p>
             <p className="infoText">
-              "Got any creative ideas for a 10 year old&apos;s birthday?"
+              &quot;Got any creative ideas for a 10 year old&apos;s
+              birthday?&quot;
             </p>
             <p className="infoText">
-              "How do I make an HTTP request in Javascript?"
+              &quot;How do I make an HTTP request in Javascript?&quot;
             </p>
           </div>
         </div>
