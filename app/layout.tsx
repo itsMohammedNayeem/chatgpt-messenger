@@ -6,8 +6,8 @@ import { getServerSession } from "next-auth";
 import ClientProvider from "@/components/ClientProvider";
 import SideBar from "@/components/SideBar";
 import { SessionProvider } from "@/components/SessionProvider";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Login from "@/components/Login";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

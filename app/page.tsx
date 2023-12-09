@@ -6,13 +6,13 @@ import {
 
 export default function Page() {
   return (
-    <div className="text-white flex flex-col items-center justify-center h-screen px-2 ">
+    <div className="text-white flex flex-col items-center justify-center h-screen px-2">
       <h1 className="text-5xl font-bold mb-20">ChatGPT</h1>
       <div className="flex space-x-2 text-center">
         <div className="">
           <div className="flex flex-col items-center justify-center mb-5">
             {/*sun icon*/}
-            <SunIcon className="h-10 w-10 text-white mb-2" />
+            <SunIcon className="h-8 w-8 text-white mb-2" />
             <h2>Examples</h2>
           </div>
           <div className="space-y-2">
@@ -20,7 +20,7 @@ export default function Page() {
               "Explain quantum computing in simple terms"
             </p>
             <p className="infoText">
-              "Got any creative ideas for a 10 year old’s birthday?"
+              "Got any creative ideas for a 10 year old&apos;s birthday?"
             </p>
             <p className="infoText">
               "How do I make an HTTP request in Javascript?"
@@ -31,7 +31,7 @@ export default function Page() {
         <div>
           <div className="flex flex-col items-center justify-center mb-5">
             {/*sun icon*/}
-            <BoltIcon className="h-10 w-10 text-white mb-2" />
+            <BoltIcon className="h-8 w-8 text-white mb-2" />
             <h2>Capabilities</h2>
           </div>
           <div className="space-y-2">
@@ -50,7 +50,7 @@ export default function Page() {
         <div>
           <div className="flex flex-col items-center justify-center mb-5">
             {/*sun icon*/}
-            <ExclamationTriangleIcon className="h-10 w-10 text-white mb-2" />
+            <ExclamationTriangleIcon className="h-8 w-8 text-white mb-2" />
             <h2>limitations</h2>
           </div>
           <div className="space-y-2">
