@@ -24,7 +24,7 @@ function SideBar() {
     <div className="p-2 flex flex-col h-screen">
       <div className="flex-1">
         <div>
-          <div className="flex justify-between my-2 mx-2">
+          {/* <div className="flex justify-between my-2 mx-2">
             <Link className="text-2xl font-bold text-gray-400" href="/">
               <HomeIcon className="h-10 w-10 text-gray-400 hover:text-blue-700 hover:animate-pulse" />
             </Link>
@@ -37,18 +37,19 @@ function SideBar() {
                 Github
               </p>
             </a>
-          </div>
-          <div className="sm:inline hidden my-2">
-            <ModelSelection />
-          </div>
+          </div> */}
 
           <NewChat />
 
+          <div className="sm:inline hidden">
+            <ModelSelection />
+          </div>
+
           <div className="flex flex-col space-y-2 my-2">
             {loading && (
-              <p className="animate-pulse text-gray-400 text-center">
-                Loading Chats...
-              </p>
+              <div className="animate-pulse text-white text-center">
+                <p>Loading Chats...</p>
+              </div>
             )}
 
             {chats?.docs.map((chat) => (
@@ -56,7 +57,6 @@ function SideBar() {
             ))}
           </div>
         </div>
-        {/*a way to go back to the home page that is fixed to the buttom of the page*/}
       </div>
 
       {session && (

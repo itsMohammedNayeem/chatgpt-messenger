@@ -17,7 +17,6 @@ function ChatInput({ chatId }: Props) {
   const [prompt, setPrompt] = useState("");
   const { data: session } = useSession();
 
-  //useSWR to get model
   const { data: model } = useSWR("model", { fallbackData: "text-davinci-003" });
 
   const sendMessage = async (e: FormEvent<HTMLFormElement>) => {
@@ -94,7 +93,7 @@ function ChatInput({ chatId }: Props) {
         </button>
       </form>
 
-      <div className="md:hidden lg:hidden ">
+      <div className="md:hidden">
         <ModelSelection />
       </div>
     </div>

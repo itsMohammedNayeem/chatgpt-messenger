@@ -22,6 +22,9 @@ function NewChat() {
   return (
     <div
       className="border-gray-700 border items-center chatRow"
+      role="button"
+      onKeyDown={createNewChat}
+      tabIndex={0}
       onClick={createNewChat}
     >
       <PlusIcon className="h-4 w-4" />
