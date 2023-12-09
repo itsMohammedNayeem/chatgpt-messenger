@@ -7,12 +7,18 @@ import Link from "next/link";
 import { HomeIcon } from "@heroicons/react/24/outline";
 import ModelSelection from "./ModelSelection";
 import NewChat from "./NewChat";
-import ChatRow from "./ChatRow";
+import ChatRow from "./ChatRow";  
 import { useSession, signOut } from "next-auth/react";
 
 function SideBar() {
   const { data: session } = useSession();
-  const [chats, loading, error] = useCollection(query(collection(db, "chats")));
+  const [chats, loading] = useCollection(
+    session &&
+      query(
+        collection(db, "users", session.user?.email!, "chats"),
+        orderBy("createdAt", "asc")
+      )
+  );
 
   return (
     <div className="p-2 flex flex-col h-screen">
