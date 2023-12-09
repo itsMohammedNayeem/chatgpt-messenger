@@ -1,28 +1,25 @@
 import openai from "./chatgpt";
 
 const query = async (prompt: string, model: string) => {
-  const res = await openai
-    .createCompletion({
+  const res = await openai.completions
+    .create({
       model,
       prompt,
-      temperature: 0,
-      top_p: 0.2,
-      max_tokens: 2000,
+      temperature: 0.9,
+      top_p: 1,
+      max_tokens: 1000,
       frequency_penalty: 0,
       presence_penalty: 0,
       stream: false,
       n: 1,
     })
-    .then((res) => res.data.choices.map((choice: any) => choice.text)[0])
+    .then((res: any) => res.data.choices[0].text)
     .catch(
-      (err) => `ChatGPT Error: 
+      (err: any) => `ChatGPT Error: 
             ${err.message}`
     );
-  var answer = res;
-  //clean up the answer
-  //remove the '"' from the answer
 
-  return answer;
+  return res;
 };
 
 export default query;
