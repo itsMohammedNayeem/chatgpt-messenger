@@ -6,9 +6,9 @@ import Message from "./Message";
 import { ArrowDownCircleIcon } from "@heroicons/react/24/solid";
 import { db } from "@/firebase";
 
-type Props = {
+type Props = Readonly<{
   chatId: string;
-};
+}>;
 
 function Chat({ chatId }: Props) {
   const [messages] = useCollection(
