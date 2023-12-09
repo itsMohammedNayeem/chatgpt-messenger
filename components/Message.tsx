@@ -1,16 +1,21 @@
 import { DocumentData } from "@firebase/firestore";
 
-type Props = {
+type Props = Readonly<{
   message: DocumentData;
-};
+}>;
 
 function Message({ message }: Props) {
-  const isChatGPT = message.id === "ChatGPT";
+  const isChatGPT = message.user.name === "ChatGPT";
 
   return (
     <div className={`py-5 text-white ${isChatGPT && "bg-[#777b8a]"}`}>
       <div className="flex space-x-5 px-10 max-w-2xl mx-auto">
-        <p className="pt-1 text-">{message.text}</p>
+        <img
+          src={message.user.avatar}
+          alt=""
+          className="h-8 w-8 rounded-full"
+        />
+        <p className="pt-1 text-sm">{message.text}</p>
       </div>
     </div>
   );
