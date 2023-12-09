@@ -5,6 +5,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { db } from "@/firebase";
+import { useSession } from "next-auth/react";
 
 type Props = {
   id: string;
@@ -14,9 +15,10 @@ function ChatRow({ id }: Props) {
   const pathname = usePathname();
   const router = useRouter();
   const [active, setActive] = useState(false);
+  const { data: session } = useSession();
 
   const [messages] = useCollection(
-    query(collection(db, "chats", id, "messages"), orderBy("createdAt", "asc"))
+    collection(db, "users", session?.user?.email!, "chats", id, "messages")
   );
 
   useEffect(() => {
@@ -25,8 +27,8 @@ function ChatRow({ id }: Props) {
     setActive(pathname.includes(id));
   }, [pathname]);
 
-  const deleteChat = async () => {
-    await deleteDoc(doc(db, "chats", id));
+  const removeChat = async () => {
+    await deleteDoc(doc(db, "users", session?.user?.email!, "chats", id));
     router.replace("/");
   };
 
@@ -41,7 +43,7 @@ function ChatRow({ id }: Props) {
       </p>
       <TrashIcon
         className="h-5 w-5 text-gray-700 hover:text-red-700"
-        onClick={deleteChat}
+        onClick={removeChat}
       />
     </Link>
   );
